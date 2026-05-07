@@ -1,0 +1,120 @@
+[
+  {
+    "id": "6cd8c45f-f6fa-408b-9257-ffb968c476c9",
+    "createdAt": "2026-05-07T14:05:16.439Z",
+    "mode": "repo",
+    "teamKey": "Ashwinihebbali",
+    "userLogin": null,
+    "input": {
+      "repoUrl": "https://github.com/Ashwinihebbali/DiamondPricePredictor"
+    },
+    "analysis": {
+      "mode": "repo",
+      "analysisId": "6cd8c45f-f6fa-408b-9257-ffb968c476c9",
+      "repo": {
+        "fullName": "Ashwinihebbali/DiamondPricePredictor",
+        "ownerLogin": "Ashwinihebbali",
+        "stars": 0,
+        "openIssues": 0,
+        "forks": 0,
+        "defaultBranch": "main"
+      },
+      "score": 27,
+      "verdict": "Critical",
+      "insights": [
+        "Top contributor controls 100% of sampled commits",
+        "1 active contributors in recent history",
+        "3 high-risk hotspot files detected"
+      ],
+      "riskSignals": [
+        {
+          "label": "Ownership Concentration",
+          "value": 100
+        },
+        {
+          "label": "Volatility Pressure",
+          "value": 100
+        },
+        {
+          "label": "Collaboration Fragility",
+          "value": 80
+        },
+        {
+          "label": "Documentation Drift",
+          "value": 12
+        }
+      ],
+      "reviewDNA": [
+        {
+          "label": "Complexity",
+          "value": 100
+        },
+        {
+          "label": "Resilience",
+          "value": 0
+        },
+        {
+          "label": "Collaboration",
+          "value": 20
+        },
+        {
+          "label": "Documentation",
+          "value": 88
+        }
+      ],
+      "hotspots": [
+        {
+          "file": "diamonds.csv",
+          "touches": 1,
+          "risk": 100,
+          "aiReview": {
+            "severity": "Critical",
+            "headline": "Critical hotspot: diamonds.csv",
+            "rationale": "Data/schema sensitivity with very high churn. Risk index is driven by file change volume within this PR and file type.",
+            "comments": [
+              "Validate schema/data compatibility and add migration/validation checks where appropriate.",
+              "Review correctness, error handling, and compatibility with surrounding code."
+            ]
+          }
+        },
+        {
+          "file": "notebooks_data analysis.ipynb",
+          "touches": 1,
+          "risk": 100,
+          "aiReview": {
+            "severity": "Critical",
+            "headline": "Critical hotspot: notebooks_data analysis.ipynb",
+            "rationale": "Complex code paths with very high churn. Risk index is driven by file change volume within this PR and file type.",
+            "comments": [
+              "Validate new logic against existing invariants and add regression tests for edge cases introduced by this change.",
+              "Confirm types/interfaces are updated consistently across call sites (public contracts, return shapes, and error modes).",
+              "Look for performance or complexity regressions (avoid N+1 patterns, unbounded loops, and repeated serialization).",
+              "Review correctness, error handling, and compatibility with surrounding code."
+            ]
+          }
+        },
+        {
+          "file": "readme.md",
+          "touches": 8,
+          "risk": 9,
+          "aiReview": {
+            "severity": "Low",
+            "headline": "Low docs hotspot: readme.md",
+            "rationale": "Docs drift / mismatch risk with small churn. Risk index is driven by file change volume within this PR and file type.",
+            "comments": [
+              "Confirm docs reflect the actual behavior and include any required examples or breaking-change notes.",
+              "Check for internal consistency (links, terminology, and API signatures).",
+              "Review correctness, error handling, and compatibility with surrounding code."
+            ]
+          }
+        }
+      ],
+      "recommendations": [
+        "Introduce rotating code ownership and require at least 2 reviewers on critical directories.",
+        "Split large commits into smaller review batches and enforce PR size budgets.",
+        "Documentation signals are solid; keep changelog discipline.",
+        "Use hotspot files as mandatory audit targets during every release readiness review."
+      ]
+    }
+  }
+]
