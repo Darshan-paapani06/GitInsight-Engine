@@ -42,3 +42,4 @@ The app works without a token for light usage.
 - `POST /api/analyze`
   - Body: `{ "repoUrl": "https://github.com/owner/repo" }`
   - Response: review score, risks, DNA values, hotspots, recommendations
+  
